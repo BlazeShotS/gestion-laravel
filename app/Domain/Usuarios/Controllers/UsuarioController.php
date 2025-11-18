@@ -66,4 +66,29 @@ class UsuarioController extends Controller
     {
         //
     }
+
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'contrasena' => 'required|string'
+        ]);
+
+        $resultado = $this->usuarioService->login(
+            $request->email,
+            $request->contrasena
+        );
+
+        if (isset($resultado['error'])) {
+            return response()->json([
+                'mensaje' => $resultado['error']
+            ], 400);
+        }
+
+        return response()->json([
+            'mensaje' => 'Inicio de sesión correcto',
+            'usuario' => $resultado
+        ], 200);
+    }
 }
