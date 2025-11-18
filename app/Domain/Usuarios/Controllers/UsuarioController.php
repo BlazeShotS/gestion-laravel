@@ -67,7 +67,7 @@ class UsuarioController extends Controller
         //
     }
 
-
+    /*Controlador de login*/
     public function login(Request $request)
     {
         $request->validate([
