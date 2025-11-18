@@ -12,4 +12,9 @@ class UsuarioRepository
     }
 
 
+    public function buscarPorEmail(string $email): ?Usuario
+    {
+        return Usuario::where('email', $email)->first();
+    }
+
 }
