@@ -11,7 +11,6 @@ class UsuarioRepository
         return Usuario::create($data);
     }
 
-
     public function buscarPorEmail(string $email): ?Usuario
     {
         return Usuario::where('email', $email)->first();
