@@ -20,6 +20,7 @@ class UsuarioService
         return $this->usuarioRepository->crear($data);
     }
 
+    /*Llamando desde mi repository*/
     public function login(string $email, string $password)
     {
         $usuario = $this->usuarioRepository->buscarPorEmail($email);
